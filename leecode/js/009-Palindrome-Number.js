@@ -18,7 +18,7 @@ var isPalindrome = function (x) {
         p = p * 10 + x % 10;
         x = Math.floor(x / 10);
     }
-    // console.log(x, p);
+    console.log(x, p);
     return t === p;
 };
 
