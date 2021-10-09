@@ -1,12 +1,7 @@
 var reverseString = function(s) {
-  let restr = [];
-  for (let i = s.length - 1; i >= 0; i--) {
-    let x = []
-    x = restr.push(s[i]);
+    let lens = s.length
+    for(let i = lens - 1; i >= 0 ; i--){
+        s.push(s[i])
     }
-  return restr;
-};
-
-s = ["H","a","n","n","a","h"]
-
-console.log(reverseString(s))
+   return s.splice(0,lens)
+ };
