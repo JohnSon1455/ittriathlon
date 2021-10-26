@@ -1,4 +1,4 @@
-import CartItem from "./cart-item"
+import CartItem from "./cartitem"
 
 class Cart {
   constructor() {
