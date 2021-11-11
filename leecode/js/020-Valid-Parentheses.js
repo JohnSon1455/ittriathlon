@@ -13,33 +13,22 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-
-    var stack = [];
-    for (var i = 0; i < s.length; i++) {
-        var c = s[i];
-        switch (c) {
-            case '(':
-                stack.push(')');
-                break;
-            case '[':
-                stack.push(']');
-                break;
-            case '{':
-                stack.push('}');
-                break;
-            default:
-
-                if (!stack.length || stack.pop() !== c) {
-                    // console.log(stack);
-                    return false;
-                }
-
+        var stack = [];
+        var len = s.length;
+        var map = {
+          '(': ')',
+          '[': ']',
+          '{': '}'
+        };
+        for (var i = 0; i < len; i++) {
+          if (stack.length > 0 && map[stack[stack.length - 1]] === s[i]) {
+            stack.pop();
+          } else {
+            stack.push(s[i]);
+          }
         }
-    }
-
-    return stack.length === 0;
-};
-
+        return stack.length === 0;
+      };
 console.log(isValid('()[]{}'));
 console.log(isValid('[()][]{}'));
 console.log(isValid('(])'));
